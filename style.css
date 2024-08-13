@@ -1,18 +1,16 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   display: flex;
+  user-select: none;
 }
 
-.division#left {
+#buttonMatrix {
   background-color: #232323;
   width: 75%;
+  padding: 5px;
 }
 
-.division#right {
+#rightDiv {
   background-color: #3F3F3F;
   width: 25%;
   display: flex;
@@ -20,9 +18,26 @@ body {
   justify-content: center;
 }
 
-#content {
+#currentOrder {
   background-color: #EFEFEF;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
+}
 
+.button {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: 6px solid #E392FA;
+  background-color: #3F3F3F;
+  margin: 5px;
+}
+
+.button:hover {
+  background-color: #303030;
+}
+
+.button:active {
+  background-color: red;
 }
