@@ -12,6 +12,7 @@ body {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+  overflow-y: auto;
 }
 
 #rightDiv {
@@ -20,12 +21,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 500px;
 }
 
 #currentOrder {
   background-color: #EFEFEF;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-end;
 }
 
 .button {
@@ -44,4 +50,33 @@ body {
 
 .button:active {
   background-color: green;
+}
+
+.paymentButton {
+  box-sizing: border-box;
+  background-color: #EFEFEF;
+  margin: 2px;
+  width: calc(100% - 8px);
+  height: 100px;
+  border-radius: 20px;
+  border: 6px solid #232323;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.paymentButton:hover {
+  background-color: #E0E0E0
+}
+
+.paymentButton:active {
+  background-color: red;
+}
+
+.paymentLabel {
+  font-family: "Arial";
+}
+
+#orderTotal {
+  font-family: "Arial";
 }
