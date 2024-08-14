@@ -8,6 +8,10 @@ body {
   background-color: #232323;
   width: 75%;
   padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 #rightDiv {
@@ -39,5 +43,5 @@ body {
 }
 
 .button:active {
-  background-color: red;
+  background-color: green;
 }
