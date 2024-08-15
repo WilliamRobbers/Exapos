@@ -7,10 +7,26 @@
   <body>
     <div id="buttonMatrix"></div>
     <div id="rightDiv">
-      <div id="currentOrder">
-        <h1 id="orderTotal">TOTAL: $xx</h1>
-        <div id="cash" class="paymentButton"><h1 class="paymentLabel">CASH</h1></div>
-        <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div>
+      <div id="order">
+        <div id="checkout">
+          <table id="cart">
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Qty</th>
+            </tr>
+            <tr>
+              <td>test</td>
+              <td>x</td>
+              <td>x</td>
+            </tr>
+          </table>
+        </div>
+        <div id="payment">
+          <h1 id="orderTotal">TOTAL: $xx</h1>
+          <div id="cash" class="paymentButton"><h1 class="paymentLabel">CASH</h1></div>
+          <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
