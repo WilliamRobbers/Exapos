@@ -1,4 +1,4 @@
-var items = 28;
+var items = 56;
 
 for (let i=0; i<items; i++) {
   var div = document.createElement("div");

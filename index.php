@@ -7,13 +7,13 @@
   <body>
     <div id="buttonMatrix"></div>
     <div id="rightDiv">
-      <div id="order">
-        <div id="checkout">
+      <div id="checkout">
+        <div id="order">
           <table id="cart">
             <tr>
-              <th>Item</th>
-              <th>Price</th>
-              <th>Qty</th>
+              <th id="itemcol">Item</th>
+              <th id="pricecol">Price</th>
+              <th id="qtycol">Qty</th>
             </tr>
             <tr>
               <td>test</td>
