@@ -8,21 +8,16 @@
     <div id="buttonMatrix"></div>
     <div id="rightDiv">
       <div id="checkout">
-        <div id="order">
-          <table id="cart">
-            <tr>
-              <th id="itemcol">Item</th>
-              <th id="pricecol">Price</th>
-              <th id="qtycol">Qty</th>
-            </tr>
-            <tr>
-              <td>test</td>
-              <td>x</td>
-              <td>x</td>
-            </tr>
-          </table>
+        <div id="order"> <!-- Top portion of checkout div (right hand side) that holds the current cart / order -->
+
+          <div class="row">
+            <div class="td" id="item">Item</div>
+            <div class="td" id="price">Price</div>
+            <div class="td" id="qty">Qty</div>
+          </div>
+
         </div>
-        <div id="payment">
+        <div id="payment"> <!-- Bottom portion of checkout div (right hand side) that holds the payment options and total -->
           <h1 id="orderTotal">TOTAL: $xx</h1>
           <div id="cash" class="paymentButton"><h1 class="paymentLabel">CASH</h1></div>
           <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div>
