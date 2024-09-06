@@ -10,10 +10,10 @@
       <div id="checkout">
         <div id="order"> <!-- Top portion of checkout div (right hand side) that holds the current cart / order -->
 
-          <div class="row">
-            <div class="td" id="item">Item</div>
-            <div class="td" id="price">Price</div>
-            <div class="td" id="qty">Qty</div>
+          <div class="row" style="margin-top:10px;">
+            <div class="td header" style="width:65%">Item</div>
+            <div class="td header" style="width:20%">Price</div>
+            <div class="td header" style="width:15%">Qty</div>
           </div>
 
         </div>
