@@ -83,6 +83,11 @@ body {
   overflow-y: auto;
 }
 
+#cart {
+  width: 100%;
+  height: 100%;
+}
+
 #payment {
   width: 100%;
   height: 30%;
@@ -97,19 +102,33 @@ body {
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid black;
+  background-color: #E0E0E0;
 }
 
 .row {
-  width: 100%;
   height: 50px;
   display: flex;
   margin: 0 20px;
 }
 
 .header {
-  background-color: grey;
+  background-color: #3F3F3F;
+  color: #EFEFEF;
 }
 
 .button-label {
   color: white;
+}
+
+#clearCartButton {
+  color: #EFEFEF;
+  width: 10%;
+}
+
+#clearCartButton:hover {
+  color: #E392FA;
+}
+
+.removeButton {
+  width: 10%;
 }

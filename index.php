@@ -1,3 +1,5 @@
+<?php include "dbconn.php";?>
+
 <html>
   <head>
     <title>Exapos</title>
@@ -7,15 +9,19 @@
   <body>
     <div id="buttonMatrix"></div>
     <div id="rightDiv">
-      <div id="checkout">
+      <div id="checkout"> <!-- Entire white checkout div -->
         <div id="order"> <!-- Top portion of checkout div (right hand side) that holds the current cart / order -->
+          <div id="cart">
 
-          <div class="row" style="margin-top:10px;">
-            <div class="td header" style="width:65%">Item</div>
-            <div class="td header" style="width:20%">Price</div>
-            <div class="td header" style="width:15%">Qty</div>
+            <!-- Header Row -->
+            <div class="row" id="cartHeaderRow" style="margin-top:10px;">
+              <div class="td header" id="clearCartButton" onclick="clearCart()">X</div>
+              <div class="td header" style="width:55%">Item</div>
+              <div class="td header" style="width:20%">Price</div>
+              <div class="td header" style="width:15%">Qty</div>
+            </div>
+
           </div>
-
         </div>
         <div id="payment"> <!-- Bottom portion of checkout div (right hand side) that holds the payment options and total -->
           <h1 id="orderTotal">TOTAL: $xx</h1>
