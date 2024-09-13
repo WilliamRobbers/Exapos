@@ -1,17 +1,3 @@
-var items = 20;
-
-for (let i=0; i<items; i++) {
-  var div = document.createElement("div");
-  var label = document.createElement("p");
-  div.setAttribute("class", "button");
-  div.addEventListener("click", ()=>{addItem(i)});
-
-  label.textContent = i;
-  label.setAttribute("class", "button-label")
-  div.appendChild(label);
-  document.getElementById("buttonMatrix").appendChild(div);
-}
-
 function addItem(i) {
   if (document.getElementById(i) == null) { //If item is not currently in cart
     //Create row div

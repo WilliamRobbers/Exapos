@@ -7,7 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div id="buttonMatrix"></div>
+
+    <div id="buttonMatrix">
+      <?php
+        $query = "SELECT * FROM items;";
+        $result = mysqli_query($conn,$query);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+
+            $id = $row["id"];
+            $name = $row["name"];
+            $price = $row["price"];
+
+            //Generate buttons for each row in items table
+            echo "<div class='button' onclick='addItem(".$id.")'>";
+            echo "<p class='button-label'>".$name."</p>";
+            echo "<p class='button-label'>".$price."</p>";
+            echo "</div>";
+
+          }
+        }
+      ?>
+    </div>
     <div id="rightDiv">
       <div id="checkout"> <!-- Entire white checkout div -->
         <div id="order"> <!-- Top portion of checkout div (right hand side) that holds the current cart / order -->

@@ -40,9 +40,7 @@ body {
   border: 6px solid #E392FA;
   background-color: #3F3F3F;
   margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
 .button:hover {background-color: #303030}
