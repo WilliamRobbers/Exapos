@@ -20,7 +20,7 @@
             $price = $row["price"];
 
             //Generate buttons for each row in items table
-            echo "<div class='button' onclick='addItem(".$id.",\"".$name."\")'>";
+            echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
             echo "<p class='buttonLabel'>".$name."</p>";
             echo "<p class='buttonLabel'>$".$price."</p>";
             echo "</div>";
@@ -38,7 +38,7 @@
             <!-- Header Row -->
             <div class="row" id="cartHeaderRow" style="margin-top:10px;">
               <div class="td header" id="clearCartButton" onclick="clearCart()">X</div>
-              <div class="td header" style="width:55%">Item</div>
+              <div class="td header" style="width:65%">Item</div>
               <div class="td header" style="width:20%">Price</div>
               <div class="td header" style="width:15%">Qty</div>
             </div>
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div id="payment"> <!-- Bottom portion of checkout div (right hand side) that holds the payment options and total -->
-          <h1 id="orderTotal">TOTAL: $xx</h1>
+          <h1 style="font-family:'Arial';">TOTAL: $<span id="orderTotal"></span></h1>
           <div id="cash" class="paymentButton"><h1 class="paymentLabel">CASH</h1></div>
           <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div>
         </div>
