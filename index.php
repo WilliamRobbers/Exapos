@@ -20,15 +20,16 @@
             $price = $row["price"];
 
             //Generate buttons for each row in items table
-            echo "<div class='button' onclick='addItem(".$id.")'>";
-            echo "<p class='button-label'>".$name."</p>";
-            echo "<p class='button-label'>".$price."</p>";
+            echo "<div class='button' onclick='addItem(".$id.",\"".$name."\")'>";
+            echo "<p class='buttonLabel'>".$name."</p>";
+            echo "<p class='buttonLabel'>$".$price."</p>";
             echo "</div>";
 
           }
         }
       ?>
     </div>
+
     <div id="rightDiv">
       <div id="checkout"> <!-- Entire white checkout div -->
         <div id="order"> <!-- Top portion of checkout div (right hand side) that holds the current cart / order -->

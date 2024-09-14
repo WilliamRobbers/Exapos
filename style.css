@@ -33,7 +33,6 @@ body {
 }
 
 .button {
-  display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 10px;
@@ -41,6 +40,16 @@ body {
   background-color: #3F3F3F;
   margin: 5px;
   display: block;
+  color: white;
+}
+
+.buttonLabel {
+  height: 50%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20;
 }
 
 .button:hover {background-color: #303030}
@@ -112,10 +121,6 @@ body {
 .header {
   background-color: #3F3F3F;
   color: #EFEFEF;
-}
-
-.button-label {
-  color: white;
 }
 
 #clearCartButton {

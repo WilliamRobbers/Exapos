@@ -1,21 +1,21 @@
-function addItem(i) {
-  if (document.getElementById(i) == null) { //If item is not currently in cart
+function addItem(itemId, itemName) {
+  if (document.getElementById(itemId) == null) { //If item is not currently in cart
     //Create row div
     var row = document.createElement("div");
     row.setAttribute("class", "row");
-    row.setAttribute("id", i);
+    row.setAttribute("id", itemId);
 
     //Create child element for remove item button
     var delItem = document.createElement("div")
     delItem.setAttribute("class", "td removeButton");
-    delItem.addEventListener("click", ()=>{removeItem(i)});
+    delItem.addEventListener("click", ()=>{removeItem(itemId)});
     delItem.textContent = "X";
 
     //Create child element for item description
     var itemCol = document.createElement("div");
     itemCol.setAttribute("class", "td");
     itemCol.setAttribute("style", "width:65%");
-    itemCol.textContent = i;
+    itemCol.textContent = itemName;
 
     //Create child element for item price
     var priceCol = document.createElement("div");
@@ -39,8 +39,8 @@ function addItem(i) {
   }
 
   else { //Item is already in cart
-    var qty = Number(document.getElementById(i).children[3].textContent);
-    document.getElementById(i).children[3].textContent = qty+1;
+    var qty = Number(document.getElementById(itemId).children[3].textContent);
+    document.getElementById(itemId).children[3].textContent = qty+1;
   }
 }
 
@@ -51,6 +51,6 @@ function clearCart() {
   }
 }
 
-function removeItem(item) {
-  document.getElementById(item).remove();
+function removeItem(itemId) {
+  document.getElementById(itemId).remove(); //Remove element by id that is passed to function
 }
