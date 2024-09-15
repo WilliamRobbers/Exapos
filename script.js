@@ -1,4 +1,4 @@
-let cart = [];
+let cart = []; // Associative array to store cart contents
 
 function addToCart(itemId, itemName, itemPrice) {
   // Find itemId in cart array
@@ -11,6 +11,24 @@ function addToCart(itemId, itemName, itemPrice) {
     // Item not in cart, add new item
     cart.push({ itemId, itemName, itemPrice, itemQuantity: 1 });
   }
+
+  updateCart();
+}
+
+// Remove all items from cart
+function clearCart() {
+  // Empty the cart and update
+  cart = [];
+  updateCart();
+}
+
+// Remove specific item from cart
+function removeItem(itemId) {
+  // Find itemId in cart array
+  const itemIndex = cart.findIndex(item => item.itemId === itemId);
+
+  // Remove 1 item from cart array starting at itemIndex (remove item at index)
+  cart.splice(itemIndex, 1);
 
   updateCart();
 }
@@ -46,7 +64,7 @@ function updateCart() {
         <div class="td removeButton" onclick='removeItem(${id})'>X</div>
         <div class="td" style="width:65%">${name}</div>
         <div class="td" style="width:20%">$${price}</div>
-        <div class="td" style="width:15%">${qty}</div>
+        <div class="td" style="width:15%"><input type="number" style="width:100%;" value="${qty}" onchange="changeQty(${id}, this.value)" min=1 /></div>
       </div>
     `;
 
@@ -58,18 +76,12 @@ function updateCart() {
   orderTotalElement.textContent = total;
 }
 
-function clearCart() {
-  // Empty the cart and update
-  cart = [];
-  updateCart();
-}
-
-function removeItem(itemId) {
+// Change quantity with spinbuttons
+function changeQty(itemId, newQty) {
   // Find itemId in cart array
   const itemIndex = cart.findIndex(item => item.itemId === itemId);
-
-  // Remove 1 item from cart array starting at itemIndex
-  cart.splice(itemIndex, 1);
+  // Update quantity in cart
+  cart[itemIndex].itemQuantity = newQty;
 
   updateCart();
 }
