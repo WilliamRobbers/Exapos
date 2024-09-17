@@ -1,4 +1,5 @@
 let cart = []; // Associative array to store cart contents
+let total = 0;
 
 function addToCart(itemId, itemName, itemPrice) {
   // Find itemId in cart array
@@ -38,7 +39,7 @@ function updateCart() {
   // Variable declarations
   const cartElement = document.getElementById('cart');
   const orderTotalElement = document.getElementById('orderTotal');
-  let total = 0;
+  total = 0;
 
   // Always create header row
   cartElement.innerHTML = `
@@ -55,7 +56,7 @@ function updateCart() {
     // Retrieve item details from cart
     let id = item.itemId;
     let name = item.itemName;
-    let price = item.itemPrice.toFixed(2);
+    let price = item.itemPrice;
     let qty = item.itemQuantity;
 
     // Append row to cart with item information
@@ -73,7 +74,7 @@ function updateCart() {
   });
 
   // Set order total label to calculated total
-  orderTotalElement.textContent = total;
+  orderTotalElement.textContent = total.toFixed(2);
 }
 
 // Change quantity with spinbuttons
@@ -85,3 +86,16 @@ function changeQty(itemId, newQty) {
 
   updateCart();
 }
+
+let cash = document.getElementById("cash");
+let modalCash = document.getElementById("cash-modal");
+let cancelCash = document.getElementById("cancel-cash");
+let cashDue = document.getElementById("modal-cash-due");
+cash.addEventListener("click", () => {modalCash.classList.add("show");cashDue.textContent = total.toFixed(2);});
+cancelCash.addEventListener("click", () => {modalCash.classList.remove("show")});
+
+let eftpos = document.getElementById("eftpos");
+let modalEftpos = document.getElementById("eftpos-modal");
+let cancelEftpos = document.getElementById("cancel-eftpos");
+eftpos.addEventListener("click", () => {modalEftpos.classList.add("show")});
+cancelEftpos.addEventListener("click", () => {modalEftpos.classList.remove("show")});

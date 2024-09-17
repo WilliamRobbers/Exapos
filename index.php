@@ -8,6 +8,22 @@
   </head>
   <body>
 
+    <div class="modal-container" id="cash-modal">
+      <div class="modal">
+        <h1 class="modal-header">CASH TXN</h1>
+        <h2>Total due: $<span id="modal-cash-due"></span></h2>
+        <button class="cancel-transaction" id="cancel-cash">Cancel Transaction</button>
+      </div>
+    </div>
+
+    <div class="modal-container" id="eftpos-modal">
+      <div class="modal">
+        <h1 class="modal-header">EFTPOS TXN</h1>
+        <button class="cancel-transaction" id="cancel-eftpos">Cancel Transaction</button>
+      </div>
+    </div>
+
+
     <div id="buttonMatrix">
       <?php
         $query = "SELECT * FROM items;";
@@ -46,7 +62,7 @@
           </div>
         </div>
         <div id="payment"> <!-- Bottom portion of checkout div (right hand side) that holds the payment options and total -->
-          <h1>TOTAL: $<span id="orderTotal"></span></h1>
+          <h1>TOTAL: $<span id="orderTotal">0</span></h1>
           <div id="cash" class="paymentButton"><h1 class="paymentLabel">CASH</h1></div>
           <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div>
         </div>

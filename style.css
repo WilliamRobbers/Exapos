@@ -5,6 +5,51 @@ body {
   font-family: "Arial";
 }
 
+.modal-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease-in;
+}
+
+.modal-container.show {
+  opacity: 1;
+  pointer-events: auto;
+  transition: 0.2s ease-in;
+}
+
+.modal {
+  background-color: #EFEFEF;
+  text-align: center;
+  border-radius: 20px;
+  min-width: 300px;
+  width: 400px;
+}
+
+.modal-header {
+  margin: 30px 70px;
+}
+
+.cancel-transaction {
+  background-color: rgba(255,0,0,0.4);
+  width: 80%;
+  padding: 10px 10px;
+  margin-bottom: 30px;
+  outline: none;
+  border: none;
+  color: black;
+  border-radius: 5px;
+  box-shadow: #232323 0 0 9px 1px;
+}
+
 #buttonMatrix {
   background-color: #232323;
   width: 75%;
@@ -41,7 +86,7 @@ body {
   background-color: #3F3F3F;
   margin: 5px;
   display: block;
-  color: white;
+  color: #EFEFEF;
 }
 
 .buttonLabel {
