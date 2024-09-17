@@ -97,5 +97,6 @@ cancelCash.addEventListener("click", () => {modalCash.classList.remove("show")})
 let eftpos = document.getElementById("eftpos");
 let modalEftpos = document.getElementById("eftpos-modal");
 let cancelEftpos = document.getElementById("cancel-eftpos");
-eftpos.addEventListener("click", () => {modalEftpos.classList.add("show")});
+let eftposDue = document.getElementById("modal-eftpos-due");
+eftpos.addEventListener("click", () => {modalEftpos.classList.add("show");eftposDue.textContent = total.toFixed(2);});
 cancelEftpos.addEventListener("click", () => {modalEftpos.classList.remove("show")});

@@ -11,7 +11,8 @@
     <div class="modal-container" id="cash-modal">
       <div class="modal">
         <h1 class="modal-header">CASH TXN</h1>
-        <h2>Total due: $<span id="modal-cash-due"></span></h2>
+        <h2>Total due via Cash: $<span id="modal-cash-due"></span></h2>
+        <button class="complete-transaction" id="complete-cash">Complete Transaction</button>
         <button class="cancel-transaction" id="cancel-cash">Cancel Transaction</button>
       </div>
     </div>
@@ -19,6 +20,8 @@
     <div class="modal-container" id="eftpos-modal">
       <div class="modal">
         <h1 class="modal-header">EFTPOS TXN</h1>
+        <h2>Total due via EFTPOS: $<span id="modal-eftpos-due"></span></h2>
+        <button class="complete-transaction" id="complete-eftpos">Complete Transaction</button>
         <button class="cancel-transaction" id="cancel-eftpos">Cancel Transaction</button>
       </div>
     </div>
