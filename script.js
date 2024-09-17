@@ -92,7 +92,7 @@ let modalCash = document.getElementById("cash-modal");
 let cancelCash = document.getElementById("cancel-cash");
 let cashDue = document.getElementById("modal-cash-due");
 cash.addEventListener("click", () => {modalCash.classList.add("show");cashDue.textContent = total.toFixed(2);});
-cancelCash.addEventListener("click", () => {modalCash.classList.remove("show")});
+cancelCash.addEventListener("click", () => {modalCash.classList.remove("show");});
 
 let eftpos = document.getElementById("eftpos");
 let modalEftpos = document.getElementById("eftpos-modal");
