@@ -100,3 +100,14 @@ let cancelEftpos = document.getElementById("cancel-eftpos");
 let eftposDue = document.getElementById("modal-eftpos-due");
 eftpos.addEventListener("click", () => {modalEftpos.classList.add("show");eftposDue.textContent = total.toFixed(2);});
 cancelEftpos.addEventListener("click", () => {modalEftpos.classList.remove("show")});
+
+function processCashTransaction() {
+  let cashReceived = Number(document.getElementById("cash-received").value).toFixed(2);
+  console.log(`Transaction Processing for: ${total}, received: ${cashReceived}`)
+}
+
+function validate() {
+  let cashReceived = document.getElementById("cash-received");
+  cashReceived.value = cashReceived.value.replace(/[a-zA-Z]/g, '');
+  cashReceived.value = cashReceived.value.indexOf(".") >= 0 ? cashReceived.value.slice(0, cashReceived.value.indexOf(".") + 3) : cashReceived.value;
+}
