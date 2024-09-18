@@ -65,7 +65,7 @@ function updateCart() {
         <div class="td removeButton" onclick='removeItem(${id})'>X</div>
         <div class="td" style="width:65%">${name}</div>
         <div class="td" style="width:20%">$${price}</div>
-        <div class="td" style="width:15%"><input type="number" style="width:100%;" value="${qty}" onchange="changeQty(${id}, this.value)" min=1 /></div>
+        <div class="td" style="width:15%"><input type="number" name="qty" style="width:100%;" value="${qty}" onchange="changeQty(${id}, this.value)" min=1 /></div>
       </div>
     `;
 
@@ -102,12 +102,16 @@ eftpos.addEventListener("click", () => {modalEftpos.classList.add("show");eftpos
 cancelEftpos.addEventListener("click", () => {modalEftpos.classList.remove("show")});
 
 function processCashTransaction() {
+  let cashDue = total;
   let cashReceived = Number(document.getElementById("cash-received").value).toFixed(2);
-  console.log(`Transaction Processing for: ${total}, received: ${cashReceived}`)
+
+  let changeDue = (cashReceived - cashDue).toFixed(2);
+  document.getElementById("change-due").value = `$${changeDue}`;
+  document.getElementById("change-due-heading").style.visibility = "visible";
 }
 
 function validate() {
   let cashReceived = document.getElementById("cash-received");
-  cashReceived.value = cashReceived.value.replace(/[a-zA-Z]/g, '');
+  cashReceived.value = cashReceived.value.replace(/[^0-9.]/g, '');
   cashReceived.value = cashReceived.value.indexOf(".") >= 0 ? cashReceived.value.slice(0, cashReceived.value.indexOf(".") + 3) : cashReceived.value;
 }

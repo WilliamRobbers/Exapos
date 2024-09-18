@@ -13,10 +13,15 @@
       <div class="modal">
         <h1 class="modal-header">CASH TXN</h1>
         <h2>Total due via Cash: $<span id="modal-cash-due"></span></h2>
-        <label for="cash-received">$</label>
-        <input type="text" id="cash-received" name="cash-received" placeholder="0.00" step="0.01"  min="0" oninput="validate()" pattern="^\d+\.\d{2}$" required></input>
-        <button class="process-transaction" id="process-cash" onclick="processCashTransaction()">Process Transaction</button>
-        <button class="cancel-transaction" id="cancel-cash">Cancel Transaction</button>
+        <form action="javascript:void(0);" onsubmit="processCashTransaction()">
+          <label for="cash-received">Cash Received: $</label>
+          <input type="text" id="cash-received" name="cash-received" placeholder="0.00" step="0.01"  min="0" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?" required></input>
+          <br>
+          <label for="change-due">Change: </label>
+          <input type="text" id="change-due" name="change-due" readonly>
+          <button class="process-transaction" id="process-cash" type="submit">Process Transaction</button>
+          <button class="cancel-transaction" id="cancel-cash" type="reset">Cancel Transaction</button>
+        </form>
       </div>
     </div>
 
