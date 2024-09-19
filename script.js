@@ -88,7 +88,7 @@ function changeQty(itemId, newQty) {
 }
 
 let cash = document.getElementById("cash");
-let modalCash = document.getElementById("cash-modal");
+let modalCash = document.getElementById("cash-modal-container");
 let cancelCash = document.getElementById("cancel-cash");
 let cashDue = document.getElementById("modal-cash-due");
 cash.addEventListener("click", () => {modalCash.classList.add("show");cashDue.textContent = total.toFixed(2);});
@@ -102,12 +102,25 @@ eftpos.addEventListener("click", () => {modalEftpos.classList.add("show");eftpos
 cancelEftpos.addEventListener("click", () => {modalEftpos.classList.remove("show")});
 
 function processCashTransaction() {
+  let form = document.getElementById("cash-form");
   let cashDue = total;
   let cashReceived = Number(document.getElementById("cash-received").value).toFixed(2);
-
   let changeDue = (cashReceived - cashDue).toFixed(2);
+  let processCash = document.getElementById("process-cash");
+  let cancelCash = document.getElementById("cancel-cash");
+
   document.getElementById("change-due").value = `$${changeDue}`;
-  document.getElementById("change-due-heading").style.visibility = "visible";
+  processCash.hidden = true;
+  cancelCash.hidden = true;
+
+
+  setTimeout(function() {
+    document.getElementById("cash-modal-container").classList.remove("show");
+    form.reset();
+    processCash.hidden = false;
+    cancelCash.hidden = false;
+    clearCart();
+  }, 5000);
 }
 
 function validate() {
