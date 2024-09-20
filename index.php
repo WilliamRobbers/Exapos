@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="modal-container" id="eftpos-modal">
+    <div class="modal-container" id="eftpos-modal-container">
       <div class="modal">
         <h1 class="modal-header">EFTPOS TXN</h1>
         <h2>Total due via EFTPOS: $<span id="modal-eftpos-due"></span></h2>

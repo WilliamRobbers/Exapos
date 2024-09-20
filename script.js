@@ -1,6 +1,23 @@
 let cart = []; // Associative array to store cart contents
 let total = 0;
 
+let cashButton = document.getElementById("cash");
+let modalCash = document.getElementById("cash-modal-container");
+let processCash = document.getElementById("process-cash");
+let cancelCash = document.getElementById("cancel-cash");
+let cashDue = document.getElementById("modal-cash-due");
+
+let eftposButton = document.getElementById("eftpos");
+let modalEftpos = document.getElementById("eftpos-modal-container");
+let cancelEftpos = document.getElementById("cancel-eftpos");
+let eftposDue = document.getElementById("modal-eftpos-due");
+
+cashButton.addEventListener("click", () => {beginCashTransaction()});
+cancelCash.addEventListener("click", () => {modalCash.classList.remove("show");});
+eftposButton.addEventListener("click", () => {modalEftpos.classList.add("show");eftposDue.textContent = total.toFixed(2);});
+cancelEftpos.addEventListener("click", () => {modalEftpos.classList.remove("show")});
+
+// Add new item to cart
 function addToCart(itemId, itemName, itemPrice) {
   // Find itemId in cart array
   const itemIndex = cart.findIndex(item => item.itemId === itemId);
@@ -87,32 +104,24 @@ function changeQty(itemId, newQty) {
   updateCart();
 }
 
-let cash = document.getElementById("cash");
-let modalCash = document.getElementById("cash-modal-container");
-let cancelCash = document.getElementById("cancel-cash");
-let cashDue = document.getElementById("modal-cash-due");
-cash.addEventListener("click", () => {modalCash.classList.add("show");cashDue.textContent = total.toFixed(2);});
-cancelCash.addEventListener("click", () => {modalCash.classList.remove("show");});
+function beginCashTransaction() {
+  // Show payment modal
+  modalCash.classList.add("show");
+  // Display cash due label with cart total
+  cashDue.textContent = total.toFixed(2);
+  // Create order in mysql orders table
 
-let eftpos = document.getElementById("eftpos");
-let modalEftpos = document.getElementById("eftpos-modal");
-let cancelEftpos = document.getElementById("cancel-eftpos");
-let eftposDue = document.getElementById("modal-eftpos-due");
-eftpos.addEventListener("click", () => {modalEftpos.classList.add("show");eftposDue.textContent = total.toFixed(2);});
-cancelEftpos.addEventListener("click", () => {modalEftpos.classList.remove("show")});
+}
 
 function processCashTransaction() {
   let form = document.getElementById("cash-form");
   let cashDue = total;
   let cashReceived = Number(document.getElementById("cash-received").value).toFixed(2);
   let changeDue = (cashReceived - cashDue).toFixed(2);
-  let processCash = document.getElementById("process-cash");
-  let cancelCash = document.getElementById("cancel-cash");
 
   document.getElementById("change-due").value = `$${changeDue}`;
   processCash.hidden = true;
   cancelCash.hidden = true;
-
 
   setTimeout(function() {
     document.getElementById("cash-modal-container").classList.remove("show");
@@ -124,7 +133,10 @@ function processCashTransaction() {
 }
 
 function validate() {
+  // Cash received by clerk input
   let cashReceived = document.getElementById("cash-received");
+  // Pattern replacing anything except digits and decimal points with nothing
   cashReceived.value = cashReceived.value.replace(/[^0-9.]/g, '');
+  // Forcing max decimal input to 2dp
   cashReceived.value = cashReceived.value.indexOf(".") >= 0 ? cashReceived.value.slice(0, cashReceived.value.indexOf(".") + 3) : cashReceived.value;
 }
