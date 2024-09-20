@@ -8,32 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-
-    <div class="modal-container" id="cash-modal-container">
-      <div class="modal" id="cash-modal">
-        <h1 class="modal-header">CASH TXN</h1>
-        <h2>Total due via Cash: $<span id="modal-cash-due"></span></h2>
-        <form id="cash-form" action="javascript:void(0);" onsubmit="processCashTransaction()">
-          <label for="cash-received">Cash Received: $</label>
-          <input type="text" id="cash-received" name="cash-received" placeholder="0.00" step="0.01"  min="0" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?" required></input>
-          <br>
-          <label for="change-due" style="color:red;">Change: </label><br>
-          <input type="text" id="change-due" name="change-due" style="text-align:center;font-size:32;" readonly>
-          <button class="process-transaction" id="process-cash" type="submit">Process Transaction</button>
-          <button class="cancel-transaction" id="cancel-cash" type="reset">Cancel Transaction</button>
-        </form>
-      </div>
+    <!-- iframe for cash payment -->
+    <div id="payment-container">
+      <iframe id="paymentFrame" src="cash-transaction.php" width="400px" height="400px"></iframe>
     </div>
-
-    <div class="modal-container" id="eftpos-modal-container">
-      <div class="modal">
-        <h1 class="modal-header">EFTPOS TXN</h1>
-        <h2>Total due via EFTPOS: $<span id="modal-eftpos-due"></span></h2>
-        <button class="process-transaction" id="process-eftpos">Process Transaction</button>
-        <button class="cancel-transaction" id="cancel-eftpos">Cancel Transaction</button>
-      </div>
-    </div>
-
 
     <div id="buttonMatrix">
       <?php
@@ -46,7 +24,7 @@
             $name = $row["name"];
             $price = $row["price"];
 
-            //Generate buttons for each row in items table
+            // Generate buttons for each row in items table
             echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
             echo "<p class='buttonLabel'>".$name."</p>";
             echo "<p class='buttonLabel'>$".$price."</p>";

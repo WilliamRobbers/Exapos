@@ -1,0 +1,17 @@
+body {
+  background-color: #EFEFEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.noborder {
+  border: none;
+}
+
+#change-due {
+  text-align: center;
+  font-size: 32;
+}

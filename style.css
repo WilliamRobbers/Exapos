@@ -5,75 +5,32 @@ body {
   font-family: "Arial";
 }
 
-.modal-container {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
+#payment-container {
+  display:flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,0.5);
   opacity: 0;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.5);
   pointer-events: none;
   transition: 0.2s ease-in;
 }
 
-.modal-container.show {
+#payment-container.show {
   opacity: 1;
   pointer-events: auto;
   transition: 0.2s ease-in;
 }
 
-.hide {
-  display: none;
-}
-
-.modal {
-  background-color: #EFEFEF;
-  text-align: center;
+#paymentFrame {
+  border: none;
   border-radius: 20px;
-  min-width: 300px;
-  width: 400px;
 }
 
-.modal-header {
-  margin: 30px 70px;
-}
-
-.cancel-transaction {
-  background-color: rgba(255,0,0,0.4);
-  width: 80%;
-  padding: 10px 10px;
-  margin-bottom: 30px;
-  outline: none;
-  border: none;
-  color: black;
-  border-radius: 5px;
-  box-shadow: #232323 0 0 9px 1px;
-  font-weight: bold;
-}
-
-.process-transaction {
-  background-color: rgba(0,255,0,0.4);
-  width: 80%;
-  padding: 20px 10px;
-  margin: 20px;
-  outline: none;
-  border: none;
-  color: black;
-  border-radius: 5px;
-  box-shadow: #232323 0 0 9px 1px;
-  font-weight: bold;
-}
-
-#change-due {
-  margin: 10px;
-  color: red;
-  border: none;
-  background-color: #EFEFEF;
-}
 
 #buttonMatrix {
   background-color: #232323;
@@ -139,10 +96,6 @@ body {
 }
 
 .paymentButton:hover {background-color: #E0E0E0}
-
-.paymentButton:active {
-  background-color: red;
-}
 
 #order {
   width: 100%;
