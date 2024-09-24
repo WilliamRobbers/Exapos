@@ -88,9 +88,11 @@ function changeQty(itemId, newQty) {
   updateCart();
 }
 
+// Cash button is pressed
 document.getElementById("cash").addEventListener("click", function() {
+  // Show payment iframe
   document.getElementById("payment-container").classList.add("show");
   const iframe = document.getElementById("paymentFrame");
+  // Set total to order total
   iframe.contentWindow.document.getElementById("total").value = total.toFixed(2);
-  iframe.contentWindow.document.getElementById("cash-received").min = total;
 });

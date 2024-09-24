@@ -24,13 +24,13 @@
       <input type="text" name="total" id="total" class="noborder" readonly>
       <br>
       <label for="cash-received">Cash Received: $</label>
-      <input type="text" class="noborder" id="cash-received" name="cash-received" placeholder="0.00" step="0.01" min="0" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?" required>
+      <input type="text" class="noborder" id="cash-received" name="cash-received" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?" required>
       <br>
       <label for="change-due">Change Due:</label>
       <input type="text" id="change-due" name="change-due" placeholder="$0.00" class="noborder" readonly></input>
       <br>
       <button type="submit" id="process-transaction-button" onclick="processTransaction()" disabled>Process Transaction</button>
-      <button type="reset" onclick="window.parent.document.getElementById('payment-container').classList.remove('show');">Cancel Transaction</button>
+      <button type="reset" id="cancel-transaction-button" onclick="window.parent.document.getElementById('payment-container').classList.remove('show');">Cancel Transaction</button>
     </form>
 
     <script>
@@ -58,9 +58,12 @@
     }
 
     function processTransaction() {
+      // Values
       let total = parseFloat(document.getElementById("total").value) || 0;
       let received = parseFloat(document.getElementById("cash-received").value) || 0;
+      // Hide payment iframe
       window.parent.document.getElementById('payment-container').classList.remove('show');
+      // Send a message to the window parent so that the main script can clear the cart
       window.parent.postMessage('clearthecart', '*');
     }
 

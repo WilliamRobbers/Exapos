@@ -5,6 +5,7 @@ body {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  font-family: "Arial";
 }
 
 .noborder {
@@ -14,4 +15,25 @@ body {
 #change-due {
   text-align: center;
   font-size: 32;
+}
+
+#process-transaction-button {
+  background-color: rgba(0,255,0,0.5);
+}
+
+#cancel-transaction-button {
+  background-color: rgba(255,0,0,0.5);
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  box-shadow: #232323 0 0 9px 1px;
+  margin: 10px 5px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
 }
