@@ -58,5 +58,13 @@
       </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        window.addEventListener('message', function(event) {
+            // Check for the expected message
+            if (event.data === 'clearthecart') {
+                clearCart(); // Call the function defined in script.js
+            }
+        });
+    </script>
   </body>
 </html>

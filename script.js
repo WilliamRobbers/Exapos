@@ -92,4 +92,5 @@ document.getElementById("cash").addEventListener("click", function() {
   document.getElementById("payment-container").classList.add("show");
   const iframe = document.getElementById("paymentFrame");
   iframe.contentWindow.document.getElementById("total").value = total.toFixed(2);
-})
+  iframe.contentWindow.document.getElementById("cash-received").min = total;
+});
