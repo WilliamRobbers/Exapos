@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Exapos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
     <script>
         window.addEventListener('message', function(event) {
             // Check for the expected message
