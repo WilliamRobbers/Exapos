@@ -5,7 +5,7 @@ body {
   font-family: "Arial";
 }
 
-#payment-container {
+.iframe-container {
   display:flex;
   justify-content: center;
   align-items: center;
@@ -20,17 +20,16 @@ body {
   transition: 0.2s ease-in;
 }
 
-#payment-container.show {
+.iframe-container.show {
   opacity: 1;
   pointer-events: auto;
   transition: 0.2s ease-in;
 }
 
-#paymentFrame {
+iframe {
   border: none;
   border-radius: 20px;
 }
-
 
 #buttonMatrix {
   background-color: #232323;

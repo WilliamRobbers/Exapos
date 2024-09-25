@@ -96,3 +96,7 @@ document.getElementById("cash").addEventListener("click", function() {
   // Set total to order total
   iframe.contentWindow.document.getElementById("total").value = total.toFixed(2);
 });
+
+window.addEventListener("load", function() {
+  console.log("window loaded");
+});

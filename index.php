@@ -9,8 +9,12 @@
   </head>
   <body>
     <!-- iframe for cash payment -->
-    <div id="payment-container">
+    <div class="iframe-container" id="payment-container">
       <iframe id="paymentFrame" src="cash-transaction.php" width="400px" height="400px"></iframe>
+    </div>
+
+    <div class="iframe-container" id="cash-float-container">
+      <iframe id="cash-float-frame" src="cash-float.php" width="400px" height="400px"></iframe>
     </div>
 
     <div id="buttonMatrix">
