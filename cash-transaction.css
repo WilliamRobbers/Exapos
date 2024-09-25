@@ -10,6 +10,7 @@ body {
 
 .noborder {
   border: none;
+  background-color: #EFEFEF;
 }
 
 #change-due {
@@ -36,4 +37,17 @@ button {
 
 button:hover {
   opacity: 0.9;
+}
+
+input {
+  margin: 5px 0;
+}
+
+#change-due {
+  color: red;
+  font-weight: bold;
+}
+
+label {
+  font-weight: bold;
 }

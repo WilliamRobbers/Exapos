@@ -24,9 +24,10 @@
       <input type="text" name="total" id="total" class="noborder" readonly>
       <br>
       <label for="cash-received">Cash Received: $</label>
-      <input type="text" class="noborder" id="cash-received" name="cash-received" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?" required>
+      <input type="text" class="noborder" id="cash-received" name="cash-received" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?$" style="margin-bottom:20px;" required>
       <br>
       <label for="change-due">Change Due:</label>
+      <br>
       <input type="text" id="change-due" name="change-due" placeholder="$0.00" class="noborder" readonly></input>
       <br>
       <button type="submit" id="process-transaction-button" onclick="processTransaction()" disabled>Process Transaction</button>
@@ -47,11 +48,15 @@
       // Forcing max decimal input to 2dp
       cashReceived.value = cashReceived.value.indexOf(".") >= 0 ? cashReceived.value.slice(0, cashReceived.value.indexOf(".") + 3) : cashReceived.value;
 
-      // If sufficient cash is provided
-      if (parseFloat(cashReceived.value) >= total) {
+      // Get regex pattern from element
+      var pattern = cashReceived.getAttribute("pattern");
+      var regex = new RegExp(pattern, "g")
+
+      // If sufficient cash is provided and matches pattern
+      if (cashReceived.value >= total && regex.test(cashReceived.value)) {
         // Enable button
         processTransaction.disabled = false;
-      } else { // If insufficient cash is provided
+      } else { // If insufficient cash is provided or does not match pattern
         // Disable button
         processTransaction.disabled = true;
       }
