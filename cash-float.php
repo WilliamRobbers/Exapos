@@ -4,7 +4,7 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $start_amount = $_POST["start-amount"];
 
-    $query = "INSERT INTO cash_reconciliation (date,start_amount) VALUES (NOW(),$start_amount)";
+    $query = "INSERT INTO cash_reconciliation (date,start_amount) VALUES (CURRENT_DATE(),$start_amount)";
     $result = mysqli_query($conn,$query);
   }
 ?>
