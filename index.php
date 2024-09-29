@@ -1,4 +1,19 @@
-<?php include "dbconn.php";?>
+<?php
+  include "dbconn.php";
+
+  // Query the cash_reconciliation table to see if days float has started
+  $query = "SELECT * FROM cash_reconciliation WHERE date = CURRENT_DATE()";
+  $result = mysqli_query($conn,$query);
+
+  // Record exists for current date
+  if (mysqli_num_rows($result) > 0) {
+    // Log info
+    echo "<script>console.log('Current date record exists');</script>";
+  } else {
+    // Show cash float iframe
+    echo "<script>window.onload = () => {document.getElementById('cash-float-container').classList.add('show')};</script>";
+  }
+?>
 
 <html lang="en-nz">
   <head>
@@ -62,13 +77,5 @@
       </div>
     </div>
     <script src="scripts/script.js"></script>
-    <script>
-        window.addEventListener('message', function(event) {
-            // Check for the expected message
-            if (event.data === 'clearthecart') {
-                clearCart(); // Call the function defined in script.js
-            }
-        });
-    </script>
   </body>
 </html>

@@ -36,4 +36,4 @@
 
     <script src="scripts/cash-transaction.js"></script>
   </body>
-</html
+</html>

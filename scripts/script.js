@@ -97,6 +97,9 @@ document.getElementById("cash").addEventListener("click", function() {
   iframe.contentWindow.document.getElementById("total").value = total.toFixed(2);
 });
 
-window.addEventListener("load", function() {
-  console.log("window loaded");
+window.addEventListener('message', function(event) {
+    // Check for the expected message
+    if (event.data === 'clearthecart') {
+        clearCart(); // Call the function defined in script.js
+    }
 });

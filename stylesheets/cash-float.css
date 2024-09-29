@@ -1,0 +1,36 @@
+body {
+  background-color: #EFEFEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Arial";
+}
+
+.noborder {
+  border: none;
+  background-color: #EFEFEF;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  box-shadow: #232323 0 0 9px 1px;
+  margin: 10px 5px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: rgba(0,0,255,0.5);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input {
+  margin: 5px 0;
+}
+
+label {
+  font-weight: bold;
+}
