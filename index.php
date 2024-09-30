@@ -13,6 +13,32 @@
     // Show cash float iframe
     echo "<script>window.onload = () => {document.getElementById('cash-float-container').classList.add('show')};</script>";
   }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Select the float that was added for the current date
+    $query = "SELECT * FROM cash_reconciliation WHERE date = CURRENT_DATE()";
+    $result = mysqli_query($conn,$query);
+
+    if (mysqli_num_rows($result) > 0) {
+      $row = mysqli_fetch_assoc($result);
+      $float = $row["start_amount"];
+    }
+
+    // Select all orders that were added on the current day
+    $query = "SELECT * FROM orders WHERE DATE(orderdatetime) = CURRENT_DATE()";
+    $result = mysqli_query($conn,$query);
+
+    $orders_sum = 0;
+
+    if (mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+        $orders_sum += $row["ordertotal"];
+      }
+    }
+
+    $query = "UPDATE cash_reconciliation SET tally = $orders_sum WHERE date = CURRENT_DATE()";
+    $result = mysqli_query($conn,$query);
+  }
 ?>
 
 <html lang="en-nz">
@@ -33,29 +59,37 @@
       <iframe id="cash-float-frame" src="cash-float.php" width="400px" height="400px"></iframe>
     </div>
 
-    <div id="buttonMatrix">
-      <?php
-        $query = "SELECT * FROM items;";
-        $result = mysqli_query($conn,$query);
-        if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_assoc($result)) {
+    <div id="left-container">
+      <div id="navbar">
+        <form method="POST">
+          <button type="submit" class="navbutton" id="reconcile-cash">Reconcile</button>
+        </form>
+      </div>
 
-            $id = $row["id"];
-            $name = $row["name"];
-            $price = $row["price"];
+      <div id="buttonMatrix">
+        <?php
+          $query = "SELECT * FROM items;";
+          $result = mysqli_query($conn,$query);
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
 
-            // Generate buttons for each row in items table
-            echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
-            echo "<p class='buttonLabel'>".$name."</p>";
-            echo "<p class='buttonLabel'>$".$price."</p>";
-            echo "</div>";
+              $id = $row["id"];
+              $name = $row["name"];
+              $price = $row["price"];
 
+              // Generate buttons for each row in items table
+              echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
+              echo "<p class='buttonLabel'>".$name."</p>";
+              echo "<p class='buttonLabel'>$".$price."</p>";
+              echo "</div>";
+
+            }
           }
-        }
-      ?>
+        ?>
+      </div>
     </div>
 
-    <div id="rightDiv">
+    <div id="right-container">
       <div id="checkout"> <!-- Entire white checkout div -->
         <div id="order"> <!-- Top portion of checkout div (right hand side) that holds the current cart / order -->
           <div id="cart">

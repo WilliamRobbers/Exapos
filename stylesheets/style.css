@@ -31,10 +31,33 @@ iframe {
   border-radius: 20px;
 }
 
-#buttonMatrix {
+#left-container {
   background-color: #232323;
   width: 75%;
-  padding: 5px;
+  height: 100%;
+}
+
+#navbar {
+  height: 3%;
+}
+
+.navbutton {
+  height: 100%;
+  background-color: #3F3F3F;
+  color: #EFEFEF;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #E392FA;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.navbutton:hover {background-color: #303030}
+
+#buttonMatrix {
+  height: 97%;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -42,7 +65,7 @@ iframe {
   overflow-y: auto;
 }
 
-#rightDiv {
+#right-container {
   background-color: #3F3F3F;
   width: 25%;
   display: flex;
