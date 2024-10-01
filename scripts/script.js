@@ -97,6 +97,12 @@ document.getElementById("cash").addEventListener("click", function() {
   iframe.contentWindow.document.getElementById("total").value = total.toFixed(2);
 });
 
+// Reconcile button is pressed
+document.getElementById("reconcile-cash").addEventListener("click", function() {
+  // Show reconciliation iframe
+  document.getElementById("cash-reconciliation-container").classList.add("show");
+});
+
 window.addEventListener('message', function(event) {
     // Check for the expected message
     if (event.data === 'clearthecart') {

@@ -13,32 +13,6 @@
     // Show cash float iframe
     echo "<script>window.onload = () => {document.getElementById('cash-float-container').classList.add('show')};</script>";
   }
-
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Select the float that was added for the current date
-    $query = "SELECT * FROM cash_reconciliation WHERE date = CURRENT_DATE()";
-    $result = mysqli_query($conn,$query);
-
-    if (mysqli_num_rows($result) > 0) {
-      $row = mysqli_fetch_assoc($result);
-      $float = $row["start_amount"];
-    }
-
-    // Select all orders that were added on the current day
-    $query = "SELECT * FROM orders WHERE DATE(orderdatetime) = CURRENT_DATE()";
-    $result = mysqli_query($conn,$query);
-
-    $orders_sum = 0;
-
-    if (mysqli_num_rows($result) > 0) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        $orders_sum += $row["ordertotal"];
-      }
-    }
-
-    $query = "UPDATE cash_reconciliation SET tally = $orders_sum WHERE date = CURRENT_DATE()";
-    $result = mysqli_query($conn,$query);
-  }
 ?>
 
 <html lang="en-nz">
@@ -59,11 +33,13 @@
       <iframe id="cash-float-frame" src="cash-float.php" width="400px" height="400px"></iframe>
     </div>
 
+    <div class="iframe-container" id="cash-reconciliation-container">
+      <iframe id="cash-reconciliation-frame" src="cash-reconciliation.php" width="400px" height="400px"></iframe>
+    </div>
+
     <div id="left-container">
       <div id="navbar">
-        <form method="POST">
-          <button type="submit" class="navbutton" id="reconcile-cash">Reconcile</button>
-        </form>
+        <button type="submit" class="navbutton" id="reconcile-cash">Reconcile</button>
       </div>
 
       <div id="buttonMatrix">
