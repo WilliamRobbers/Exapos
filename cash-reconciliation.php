@@ -49,6 +49,7 @@
       <input type="text" class="noborder" id="end-amount" name="end-amount" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?$" style="margin-bottom:20px;" required>
 
       <button type="submit" id="end-day-button" onclick="endDay()" disabled>End day</button>
+      <button type="reset" id="cancel-reconciliation-button" onclick="window.parent.document.getElementById('cash-reconciliation-container').classList.remove('show');">Cancel Reconciliation</button>
     </form>
 
     <script src="scripts/cash-reconciliation.js"></script>

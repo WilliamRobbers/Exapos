@@ -33,6 +33,7 @@
       <iframe id="cash-float-frame" src="cash-float.php" width="400px" height="400px"></iframe>
     </div>
 
+    <!-- Cash reconciliation iframe -->
     <div class="iframe-container" id="cash-reconciliation-container">
       <iframe id="cash-reconciliation-frame" src="cash-reconciliation.php" width="400px" height="400px"></iframe>
     </div>
