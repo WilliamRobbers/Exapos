@@ -38,9 +38,15 @@
       <iframe id="cash-reconciliation-frame" src="cash-reconciliation.php" width="400px" height="400px"></iframe>
     </div>
 
+    <!-- Create new item iframe -->
+    <div class="iframe-container" id="create-new-item-container">
+      <iframe id="create-new-item-frame" src="create-new-item.php" width="400px" height="400px"></iframe>
+    </div>
+
     <div id="left-container">
       <div id="navbar">
         <button type="submit" class="navbutton" id="reconcile-cash">Reconcile</button>
+        <button type="submit" class="navbutton" id="create-new-item">New Item</button>
       </div>
 
       <div id="buttonMatrix">
