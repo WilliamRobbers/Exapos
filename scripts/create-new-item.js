@@ -25,4 +25,6 @@ function validate() {
 
 function createItem() {
   window.parent.document.getElementById('create-new-item-container').classList.remove("show");
+  // Post a message to the index page
+  window.parent.postMessage('refreshbuttonmatrix', '*');
 }

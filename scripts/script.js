@@ -109,8 +109,13 @@ document.getElementById("create-new-item").addEventListener("click", function() 
 })
 
 window.addEventListener('message', function(event) {
-    // Check for the expected message
+    // Check for the expected messages
     if (event.data === 'clearthecart') {
-        clearCart(); // Call the function defined in script.js
+      clearCart(); // Call the function defined in script.js
+    }
+    if (event.data === 'refreshbuttonmatrix') {
+      setTimeout(function(){ // JS was faster than DB Commit
+        window.location.reload(); // Refresh the page
+      });
     }
 });

@@ -1,3 +1,15 @@
+<?php
+  include "dbconn.php";
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $itemName = $_POST["item-name"];
+    $itemPrice = $_POST["item-price"];
+
+    $query = "INSERT INTO items (name,price) VALUES ('$itemName','$itemPrice')";
+    $result = mysqli_query($conn,$query);
+  }
+?>
+
 <html lang="en-nz">
   <head>
     <meta charset="utf-8">
@@ -8,10 +20,10 @@
     <h1>Create New Item</h1>
     <form method="POST">
       <label for="item-name">Enter Item Name: </label>
-      <input type="text" class="noborder" id="item-name" oninput="validate()" style="margin-bottom:20px;" required>
+      <input type="text" class="noborder" id="item-name" name="item-name" oninput="validate()" style="margin-bottom:20px;" required>
       <br>
       <label for="item-price">Enter Item Price: $</label>
-      <input type="text" class="noborder" id="item-price" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?$" style="margin-bottom:20px;" required>
+      <input type="text" class="noborder" id="item-price" name="item-price" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?$" style="margin-bottom:20px;" required>
 
 
       <button type="submit" id="create-new-item-button" onclick="createItem()" disabled>Create Item</button>

@@ -62,8 +62,8 @@
 
               // Generate buttons for each row in items table
               echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
-              echo "<p class='buttonLabel'>".$name."</p>";
-              echo "<p class='buttonLabel'>$".$price."</p>";
+              echo "<p class='buttonLabel' id='name'>".$name."</p>";
+              echo "<p class='buttonLabel' id='price'>$".$price."</p>";
               echo "</div>";
 
             }
