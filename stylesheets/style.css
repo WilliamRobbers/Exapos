@@ -39,7 +39,10 @@ iframe {
 }
 
 #navbar {
-  height: 3%;
+  height: 30px;
+  width: 100%;
+  display: inline-flex;
+  align-items: flex-start;
 }
 
 .navbutton {
@@ -58,7 +61,7 @@ iframe {
 .navbutton:hover {background-color: #303030}
 
 #buttonMatrix {
-  height: 97%;
+  height: calc(100% - 30px);
   display: flex;
   flex-wrap: wrap;
   align-content: center;
