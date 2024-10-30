@@ -6,6 +6,9 @@ function addToCart(itemId, itemName, itemPrice) {
   // Find itemId in cart array
   const itemIndex = cart.findIndex(item => item.itemId === itemId);
 
+  // Make item price 2dp
+  itemPrice = itemPrice.toFixed(2);
+
   if (itemIndex !== -1) {
     // Item already in cart, increase quantity
     cart[itemIndex].itemQuantity++;

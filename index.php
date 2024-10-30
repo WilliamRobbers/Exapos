@@ -47,6 +47,7 @@
       <div id="navbar">
         <button type="submit" class="navbutton" id="reconcile-cash">Reconcile</button>
         <button type="submit" class="navbutton" id="create-new-item">New Item</button>
+
       </div>
 
       <div id="buttonMatrix">
@@ -55,17 +56,20 @@
           $result = mysqli_query($conn,$query);
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+              // Only display active items
+              if ($row["active"] == 1) {
 
-              $id = $row["id"];
-              $name = $row["name"];
-              $price = $row["price"];
+                $id = $row["id"];
+                $name = $row["name"];
+                $price = $row["price"];
 
-              // Generate buttons for each row in items table
-              echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
-              echo "<p class='buttonLabel' id='name'>".$name."</p>";
-              echo "<p class='buttonLabel' id='price'>$".$price."</p>";
-              echo "</div>";
+                // Generate buttons for each row in items table
+                echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
+                echo "<p class='buttonLabel' id='name'>".$name."</p>";
+                echo "<p class='buttonLabel' id='price'>$".$price."</p>";
+                echo "</div>";
 
+              }
             }
           }
         ?>
@@ -90,7 +94,7 @@
         <div id="payment"> <!-- Bottom portion of checkout div (right hand side) that holds the payment options and total -->
           <h1>TOTAL: $<span id="orderTotal">0</span></h1>
           <div id="cash" class="paymentButton"><h1 class="paymentLabel">CASH</h1></div>
-          <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div>
+          <!-- <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div> -->
         </div>
       </div>
     </div>

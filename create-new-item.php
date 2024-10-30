@@ -5,7 +5,7 @@
     $itemName = $_POST["item-name"];
     $itemPrice = $_POST["item-price"];
 
-    $query = "INSERT INTO items (name,price) VALUES ('$itemName','$itemPrice')";
+    $query = "INSERT INTO items (name,price,active) VALUES ('$itemName','$itemPrice',1)";
     $result = mysqli_query($conn,$query);
   }
 ?>
