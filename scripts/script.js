@@ -106,9 +106,14 @@ document.getElementById("reconcile-cash").addEventListener("click", function() {
   document.getElementById("cash-reconciliation-container").classList.add("show");
 });
 
-//Create new item button
+// Create new item button
 document.getElementById("create-new-item").addEventListener("click", function() {
   document.getElementById("create-new-item-container").classList.add("show");
+})
+
+// Remove item button
+document.getElementById("remove-item").addEventListener("click", function() {
+  document.getElementById("remove-item-container").classList.add("show");
 })
 
 window.addEventListener('message', function(event) {

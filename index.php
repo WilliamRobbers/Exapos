@@ -43,11 +43,16 @@
       <iframe id="create-new-item-frame" src="create-new-item.php" width="400px" height="400px"></iframe>
     </div>
 
+    <!-- Remove item iframe -->
+    <div class="iframe-container" id="remove-item-container">
+      <iframe id="remove-item-frame" src="remove-item.php" width="400px" height="400px"></iframe>
+    </div>
+
     <div id="left-container">
       <div id="navbar">
         <button type="submit" class="navbutton" id="reconcile-cash">Reconcile</button>
         <button type="submit" class="navbutton" id="create-new-item">New Item</button>
-
+        <button type="submit" class="navbutton" id="remove-item">Delete Item</button>
       </div>
 
       <div id="buttonMatrix">
