@@ -98,6 +98,8 @@ document.getElementById("cash").addEventListener("click", function() {
   const iframe = document.getElementById("paymentFrame");
   // Set total to order total
   iframe.contentWindow.document.getElementById("total").value = total.toFixed(2);
+  // Use hidden input to transfer cart object to the iframe
+  iframe.contentWindow.document.getElementById("cart").value = JSON.stringify(cart);
 });
 
 // Reconcile button is pressed

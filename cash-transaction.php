@@ -5,9 +5,26 @@
     $total = $_POST["total"];
     $cash_received = $_POST["cash-received"];
     $change_due = $_POST["change-due"];
+    $cart_object = json_decode($_POST["cart"], true);
 
     $query = "INSERT INTO orders (orderdatetime,ordertotal) VALUES (NOW(),$total)";
     $result = mysqli_query($conn,$query);
+
+    $query = "SELECT * FROM orders WHERE orderid = last_insert_id()";
+    $result = mysqli_query($conn,$query);
+    $row = mysqli_fetch_assoc($result);
+    $orderid = $row["orderid"];
+
+    // For each item in processed cart
+    foreach($cart_object as $item) {
+      // Grab item id and item quantity of each item
+      $itemId = $item["itemId"];
+      $itemQuantity = $item["itemQuantity"];
+
+      // Insert a new row into the junction table with the order number, item id, and quantity
+      $query = "INSERT INTO order_item_junc (orderid,itemid,quantity) VALUES ($orderid,$itemId,$itemQuantity)";
+      $result = mysqli_query($conn,$query);
+    }
   }
 ?>
 
@@ -20,6 +37,7 @@
   <body>
     <h1>CASH TXN</h1>
     <form method="POST">
+      <input type="hidden" name="cart" id="cart" readonly>
       <label for="total">Total Cash Due: $</label>
       <input type="text" name="total" id="total" class="noborder" readonly>
       <br>
