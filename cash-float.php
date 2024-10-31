@@ -18,7 +18,7 @@
   <body>
     <h1>CASH FLOAT</h1>
     <form method="POST">
-      <label for="start-amount">Enter start of day Cash Float: $</label>
+      <label for="start-amount">Enter Cash Float: $</label>
       <input type="text" class="noborder" id="start-amount" name="start-amount" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?$" style="margin-bottom:20px;" required>
 
       <button type="submit" id="begin-day-button" onclick="beginDay()" disabled>Begin day</button>

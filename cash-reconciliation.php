@@ -64,9 +64,11 @@
       <br>
       <input type="text" id="epxected-total" class="noborder big" value="$<?php echo $expected_drawer_total ?>" readonly>
       <br>
+
       <label for="end-amount">Enter cash drawer total: $</label>
       <input type="text" class="noborder" id="end-amount" name="end-amount" placeholder="0.00" step="0.01" oninput="validate()" pattern="^[\d]+(\.[\d])?[\d]?$" style="margin-bottom:20px;background-color:#E0E0E0;" required>
       <br>
+      
       <button type="submit" id="end-day-button" onclick="endDay()" disabled>End day</button>
       <button type="reset" id="cancel-reconciliation-button" onclick="window.parent.document.getElementById('cash-reconciliation-container').classList.remove('show');">Cancel Reconciliation</button>
     </form>

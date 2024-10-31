@@ -64,7 +64,7 @@
               // Only display active items
               if ($row["active"] == 1) {
 
-                $id = $row["id"];
+                $id = $row["itemid"];
                 $name = $row["name"];
                 $price = $row["price"];
 
