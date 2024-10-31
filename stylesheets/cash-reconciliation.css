@@ -23,14 +23,10 @@ button {
   background-color: rgba(0,0,255,0.5);
 }
 
-#settlement-total {
+.big {
   text-align: center;
   font-size: 32;
-}
-
-#cash-float {
-  text-align: center;
-  font-size: 32;
+  color: rgba(0,0,255,0.5);
 }
 
 #cancel-reconciliation-button {
@@ -47,4 +43,5 @@ input {
 
 label {
   font-weight: bold;
+  display: inline-block;
 }

@@ -102,7 +102,10 @@ document.getElementById("cash").addEventListener("click", function() {
 
 // Reconcile button is pressed
 document.getElementById("reconcile-cash").addEventListener("click", function() {
-  // Show reconciliation iframe
+  // Refresh iframe content
+  iframe = document.getElementById("cash-reconciliation-frame");
+  iframe.src += "";
+  // Show iframe
   document.getElementById("cash-reconciliation-container").classList.add("show");
 });
 
