@@ -18,6 +18,10 @@ body {
   font-size: 32;
 }
 
+#cash-received {
+  background-color: #E0E0E0;
+}
+
 #process-transaction-button {
   background-color: rgba(0,255,0,0.5);
 }

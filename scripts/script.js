@@ -96,6 +96,8 @@ document.getElementById("cash").addEventListener("click", function() {
   // Show payment iframe
   document.getElementById("payment-container").classList.add("show");
   const iframe = document.getElementById("paymentFrame");
+  // Focus on the cash recieved input to increase efficiency
+  iframe.contentWindow.document.getElementById("cash-received").focus();
   // Set total to order total
   iframe.contentWindow.document.getElementById("total").value = total.toFixed(2);
   // Use hidden input to transfer cart object to the iframe
@@ -109,6 +111,8 @@ document.getElementById("reconcile-cash").addEventListener("click", function() {
   iframe.src += "";
   // Show iframe
   document.getElementById("cash-reconciliation-container").classList.add("show");
+  // Focus on the end amount input to increase efficiency
+  console.log(document.getElementById("cash-reconciliation-frame").contentWindow.document.getElementById("end-amount").focus());
 });
 
 // Create new item button
@@ -119,6 +123,9 @@ document.getElementById("create-new-item").addEventListener("click", function() 
 // Remove item button
 document.getElementById("remove-item").addEventListener("click", function() {
   document.getElementById("remove-item-container").classList.add("show");
+  const iframe = document.getElementById("remove-item-frame");
+  // Focus on the item name input to increase efficiency
+  iframe.contentWindow.document.getElementById("item-name").focus();
 })
 
 window.addEventListener('message', function(event) {
