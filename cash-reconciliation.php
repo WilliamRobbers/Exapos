@@ -27,20 +27,6 @@
   $orders_sum = number_format($orders_sum,2);
 
   $expected_drawer_total = number_format(($float + $orders_sum),2);
-
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $drawer_tally = $_POST["end-amount"];
-
-    // The drawer tally should equal the sum of all orders plus the start of day float
-    if ($expected_drawer_total == $drawer_tally) {
-      $query = "UPDATE cash_reconciliation SET drawer_total = $drawer_tally, result = 'consistent' WHERE date = CURRENT_DATE()";
-      $result = mysqli_query($conn,$query);
-    } else {
-      $query = "UPDATE cash_reconciliation SET drawer_total = $drawer_tally, result = 'inconsistent' WHERE date = CURRENT_DATE()";
-      $result = mysqli_query($conn,$query);
-    }
-  }
 ?>
 
 <html lang="en-nz">
@@ -62,7 +48,7 @@
 
       <label for="expected-total" style="margin-top: 10px;" >Expected drawer total:</label>
       <br>
-      <input type="text" id="epxected-total" class="noborder big" value="$<?php echo $expected_drawer_total ?>" readonly>
+      <input type="text" id="expected-total" class="noborder big" value="$<?php echo $expected_drawer_total ?>" readonly>
       <br>
 
       <label for="end-amount">Enter cash drawer total: $</label>
@@ -72,7 +58,24 @@
       <button type="submit" id="end-day-button" onclick="endDay()" disabled>End day</button>
       <button type="reset" id="cancel-reconciliation-button" onclick="window.parent.document.getElementById('cash-reconciliation-container').classList.remove('show');">Cancel Reconciliation</button>
     </form>
+    <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+        $drawer_tally = $_POST["end-amount"];
+
+        // The drawer tally should equal the sum of all orders plus the start of day float
+        if ($expected_drawer_total == $drawer_tally) {
+          $query = "UPDATE cash_reconciliation SET drawer_total = $drawer_tally, result = 'consistent' WHERE date = CURRENT_DATE()";
+          $result = mysqli_query($conn,$query);
+          echo "<p style='color:green'>Reconciliation Consistent</p>";
+        } else {
+          $query = "UPDATE cash_reconciliation SET drawer_total = $drawer_tally, result = 'inconsistent' WHERE date = CURRENT_DATE()";
+          $result = mysqli_query($conn,$query);
+          echo "<p style='color:red'>Reconciliation Inconsistent</p>";
+        }
+
+      }
+    ?>
     <script src="scripts/cash-reconciliation.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-let cart = []; // Associative array to store cart contents
+let cart = []; // Object array to store cart contents
 let total = 0;
 
 // Add new item to cart
@@ -112,7 +112,7 @@ document.getElementById("reconcile-cash").addEventListener("click", function() {
   // Show iframe
   document.getElementById("cash-reconciliation-container").classList.add("show");
   // Focus on the end amount input to increase efficiency
-  console.log(document.getElementById("cash-reconciliation-frame").contentWindow.document.getElementById("end-amount").focus());
+  document.getElementById("cash-reconciliation-frame").contentWindow.document.getElementById("end-amount").focus();
 });
 
 // Create new item button
@@ -137,5 +137,10 @@ window.addEventListener('message', function(event) {
       setTimeout(function(){ // JS was faster than DB Commit
         window.location.reload(); // Refresh the page
       });
+    }
+    if (event.data = 'closereconmodal') {
+      setTimeout(function(){
+        document.getElementById("cash-reconciliation-container").classList.remove("show");
+      }, 3000);
     }
 });

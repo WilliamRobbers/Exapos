@@ -22,5 +22,6 @@ function validate() {
 }
 
 function endDay() {
-  window.parent.document.getElementById('cash-reconciliation-container').classList.remove("show");
+  // Send a message to the window parent so that the main script can close the modal
+  window.parent.postMessage('closereconmodal', '*');
 }
