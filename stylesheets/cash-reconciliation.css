@@ -47,5 +47,10 @@ label {
 }
 
 p {
-  font-size: 25;
+  font-size: 22;
+  margin: 5px 0;
+}
+
+.inconsistent {
+  color: red;
 }

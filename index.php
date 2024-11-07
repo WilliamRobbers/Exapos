@@ -35,7 +35,7 @@
 
     <!-- Cash reconciliation iframe -->
     <div class="iframe-container" id="cash-reconciliation-container">
-      <iframe id="cash-reconciliation-frame" src="cash-reconciliation.php" width="400px" height="400px"></iframe>
+      <iframe id="cash-reconciliation-frame" src="cash-reconciliation.php" width="400px" height="600px"></iframe>
     </div>
 
     <!-- Create new item iframe -->

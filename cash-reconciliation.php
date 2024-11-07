@@ -62,6 +62,7 @@
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $drawer_tally = $_POST["end-amount"];
+        $difference = $drawer_tally - $expected_drawer_total;
 
         // The drawer tally should equal the sum of all orders plus the start of day float
         if ($expected_drawer_total == $drawer_tally) {
@@ -71,7 +72,7 @@
         } else {
           $query = "UPDATE cash_reconciliation SET drawer_total = $drawer_tally, result = 'inconsistent' WHERE date = CURRENT_DATE()";
           $result = mysqli_query($conn,$query);
-          echo "<p style='color:red'>Reconciliation Inconsistent</p>";
+          echo "<p class='inconsistent'>Reconciliation Inconsistent </p><p class='inconsistent'> Difference: $difference</p>";
         }
 
       }

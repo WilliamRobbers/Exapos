@@ -141,6 +141,6 @@ window.addEventListener('message', function(event) {
     if (event.data = 'closereconmodal') {
       setTimeout(function(){
         document.getElementById("cash-reconciliation-container").classList.remove("show");
-      }, 3000);
+      }, 5000);
     }
 });
