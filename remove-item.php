@@ -20,7 +20,7 @@
     <form method="POST">
       <label for="item-name">Enter Item Name: </label>
       <input type="text" class="noborder" id="item-name" name="item-name" oninput="validate()" style="margin-bottom:20px;" required>
-
+      <p style="color:red">WARNING: All items with this name will be deleted</p>
       <button type="submit" id="remove-item-button" onclick="removeItem()" disabled>Delete Item</button>
       <button type="reset" id="cancel-item-deletion-button" onclick="window.parent.document.getElementById('remove-item-container').classList.remove('show');">Cancel Item Deletion</button>
     </form>
