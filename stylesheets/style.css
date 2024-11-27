@@ -60,7 +60,7 @@ iframe {
 
 .navbutton:hover {background-color: #303030}
 
-#buttonMatrix {
+#button-matrix {
   height: calc(100% - 30px);
   display: flex;
   flex-wrap: wrap;
@@ -97,7 +97,7 @@ iframe {
   color: #EFEFEF;
 }
 
-.buttonLabel {
+.button-label {
   height: 50%;
   margin: 0;
   display: flex;
@@ -106,17 +106,17 @@ iframe {
   overflow: hidden;
 }
 
-.buttonLabel#name {
+.button-label#name {
   font-size: 1em;
 }
 
-.buttonLabel#price {
+.button-label#price {
   font-size: 1.4em;
 }
 
 .button:hover {background-color: #303030}
 
-.paymentButton {
+.payment-button {
   box-sizing: border-box;
   background-color: #EFEFEF;
   margin: 2px;
@@ -129,7 +129,7 @@ iframe {
   justify-content: center;
 }
 
-.paymentButton:hover {background-color: #E0E0E0}
+.payment-button:hover {background-color: #E0E0E0}
 
 #order {
   width: 100%;
@@ -173,19 +173,19 @@ iframe {
   color: #EFEFEF;
 }
 
-#clearCartButton {
+#clear-cart-button {
   color: #EFEFEF;
   width: 10%;
 }
 
-#clearCartButton:hover {
+#clear-cart-button:hover {
   color: #E392FA;
 }
 
-.removeButton {
+.remove-button {
   width: 10%;
 }
 
-.removeButton:hover {
+.remove-button:hover {
   color: #E392FA;
 }

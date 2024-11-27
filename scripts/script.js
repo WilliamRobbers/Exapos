@@ -42,13 +42,13 @@ function removeItem(itemId) {
 function updateCart() {
   // Variable declarations
   const cartElement = document.getElementById('cart');
-  const orderTotalElement = document.getElementById('orderTotal');
+  const orderTotalElement = document.getElementById('order-total');
   total = 0;
 
   // Always create header row
   cartElement.innerHTML = `
-    <div class="row" id="cartHeaderRow" style="margin-top:10px;">
-      <div class="td header" id="clearCartButton" onclick="clearCart()">X</div>
+    <div class="row" id="cart-header-row" style="margin-top:10px;">
+      <div class="td header" id="clear-cart-button" onclick="clearCart()">X</div>
       <div class="td header" style="width:65%">Item</div>
       <div class="td header" style="width:20%">Price</div>
       <div class="td header" style="width:15%">Qty</div>
@@ -66,7 +66,7 @@ function updateCart() {
     // Append row to cart with item information
     cartElement.innerHTML += `
       <div class="row" id="${id}">
-        <div class="td removeButton" onclick='removeItem(${id})'>X</div>
+        <div class="td remove-button" onclick='removeItem(${id})'>X</div>
         <div class="td" style="width:65%">${name}</div>
         <div class="td" style="width:20%">$${price}</div>
         <div class="td" style="width:15%"><input type="number" name="qty" style="width:100%;" value="${qty}" onchange="changeQty(${id}, this.value)" min=1 /></div>
@@ -95,7 +95,7 @@ function changeQty(itemId, newQty) {
 document.getElementById("cash").addEventListener("click", function() {
   // Show payment iframe
   document.getElementById("payment-container").classList.add("show");
-  const iframe = document.getElementById("paymentFrame");
+  const iframe = document.getElementById("payment-frame");
   // Focus on the cash recieved input to increase efficiency
   iframe.contentWindow.document.getElementById("cash-received").focus();
   // Set total to order total

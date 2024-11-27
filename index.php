@@ -25,7 +25,7 @@
   <body>
     <!-- iframe for cash payment -->
     <div class="iframe-container" id="payment-container">
-      <iframe id="paymentFrame" src="cash-transaction.php" width="400px" height="400px"></iframe>
+      <iframe id="payment-frame" src="cash-transaction.php" width="400px" height="400px"></iframe>
     </div>
 
     <!-- Start of day cash float iframe -->
@@ -55,7 +55,7 @@
         <button type="submit" class="navbutton" id="remove-item">Delete Item</button>
       </div>
 
-      <div id="buttonMatrix">
+      <div id="button-matrix">
         <?php
           $query = "SELECT * FROM items;";
           $result = mysqli_query($conn,$query);
@@ -70,8 +70,8 @@
 
                 // Generate buttons for each row in items table
                 echo "<div class='button' onclick='addToCart(".$id.",\"".$name."\",".$price.")'>";
-                echo "<p class='buttonLabel' id='name'>".$name."</p>";
-                echo "<p class='buttonLabel' id='price'>$".$price."</p>";
+                echo "<p class='button-label' id='name'>".$name."</p>";
+                echo "<p class='button-label' id='price'>$".$price."</p>";
                 echo "</div>";
 
               }
@@ -87,8 +87,8 @@
           <div id="cart">
 
             <!-- Header Row -->
-            <div class="row" id="cartHeaderRow" style="margin-top:10px;">
-              <div class="td header" id="clearCartButton" onclick="clearCart()">X</div>
+            <div class="row" id="cart-header-row" style="margin-top:10px;">
+              <div class="td header" id="clear-cart-button" onclick="clearCart()">X</div>
               <div class="td header" style="width:65%">Item</div>
               <div class="td header" style="width:20%">Price</div>
               <div class="td header" style="width:15%">Qty</div>
@@ -97,9 +97,9 @@
           </div>
         </div>
         <div id="payment"> <!-- Bottom portion of checkout div (right hand side) that holds the payment options and total -->
-          <h1>TOTAL: $<span id="orderTotal">0</span></h1>
-          <div id="cash" class="paymentButton"><h1 class="paymentLabel">CASH</h1></div>
-          <!-- <div id="eftpos" class="paymentButton"><h1 class="paymentLabel">EFTPOS</h1></div> -->
+          <h1>TOTAL: $<span id="order-total">0</span></h1>
+          <div id="cash" class="payment-button"><h1>CASH</h1></div>
+          <!-- <div id="eftpos" class="payment-button"><h1>EFTPOS</h1></div> -->
         </div>
       </div>
     </div>
