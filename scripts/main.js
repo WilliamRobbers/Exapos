@@ -9,7 +9,7 @@ function addToCart(itemId, itemName, itemPrice) {
   const ITEM_INDEX = cart.findIndex(item => item.itemId === itemId);
   itemPrice = itemPrice.toFixed(2);
 
-  if (itemIndex !== -1) { // If item exists in cart
+  if (ITEM_INDEX !== -1) { // If item exists in cart
     cart[ITEM_INDEX].itemQuantity++;
   } else {
     cart.push({ itemId, itemName, itemPrice, itemQuantity: 1 });
